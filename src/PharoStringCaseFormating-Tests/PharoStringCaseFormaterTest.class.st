@@ -56,3 +56,53 @@ PharoStringCaseFormaterTest >> testAsRealCamelCaseSpaced [
 				 asRealCamelCase)
 		equals: 'HelloWorld'
 ]
+
+{ #category : #test }
+PharoStringCaseFormaterTest >> testAsTitleCaseFromCamelCase [
+
+	self
+		assert: (formater
+				 string: 'helloWorld';
+				 asTitleCase)
+		equals: 'Hello_World'
+]
+
+{ #category : #test }
+PharoStringCaseFormaterTest >> testAsTitleCaseFromKebabCase [
+
+	self
+		assert: (formater
+				 string: 'Hello-World';
+				 asTitleCase)
+		equals: 'Hello_World'
+]
+
+{ #category : #test }
+PharoStringCaseFormaterTest >> testAsTitleCaseFromPascalCase [
+
+	self
+		assert: (formater
+				 string: 'HelloWorld';
+				 asTitleCase)
+		equals: 'Hello_World'
+]
+
+{ #category : #test }
+PharoStringCaseFormaterTest >> testAsTitleCaseFromString [
+
+	self
+		assert: (formater
+				 string: 'Hello World';
+				 asTitleCase)
+		equals: 'Hello_World'
+]
+
+{ #category : #test }
+PharoStringCaseFormaterTest >> testAsTitleCaseFromTitleCase [
+
+	self
+		assert: (formater
+				 string: 'Hello_World';
+				 asTitleCase)
+		equals: 'Hello_World'
+]

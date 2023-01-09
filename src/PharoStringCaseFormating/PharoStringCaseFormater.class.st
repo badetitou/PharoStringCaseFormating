@@ -49,6 +49,23 @@ PharoStringCaseFormater >> asRealCamelCase [
 			  stream nextPutAll: sub asLowercase capitalized ] ]
 ]
 
+{ #category : #converting }
+PharoStringCaseFormater >> asTitleCase [
+
+	"
+	[wiki link](https://en.wikipedia.org/wiki/Naming_convention_(programming))
+	Two_Words
+	"
+
+	^ String streamContents: [ :stream | 
+		  stream << self string first asUppercase.
+		  (self string allButFirst substrings:
+			   (CharacterSet newFrom: #( $_ $- $  ))) do: [ :subString | 
+			  subString do: [ :char | 
+				  char isUppercase ifTrue: [ stream nextPut: $_ ].
+				  stream nextPut: char ] ] ]
+]
+
 { #category : #accessing }
 PharoStringCaseFormater >> string [
 
