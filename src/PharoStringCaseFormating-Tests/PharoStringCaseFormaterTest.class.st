@@ -18,6 +18,16 @@ PharoStringCaseFormaterTest >> setUp [
 ]
 
 { #category : #test }
+PharoStringCaseFormaterTest >> testAsKebabCase [
+
+	self
+		assert: (formater
+				 string: 'HelloWorld';
+				 asKebabCase)
+		equals: 'hello-world'
+]
+
+{ #category : #test }
 PharoStringCaseFormaterTest >> testAsRealCamelCaseAlreadyCamelCase [
 
 	self

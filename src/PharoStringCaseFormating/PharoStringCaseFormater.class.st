@@ -1,3 +1,6 @@
+"
+[wiki link](https://en.wikipedia.org/wiki/Naming_convention_programming)
+"
 Class {
 	#name : #PharoStringCaseFormater,
 	#superclass : #Object,
@@ -6,6 +9,14 @@ Class {
 	],
 	#category : #PharoStringCaseFormating
 }
+
+{ #category : #'instance creation' }
+PharoStringCaseFormater class >> on: aString [
+
+	^ self new
+		  string: aString;
+		  yourself
+]
 
 { #category : #converting }
 PharoStringCaseFormater >> asCamelCase [
@@ -38,6 +49,16 @@ PharoStringCaseFormater >> asExpendedString [
 		  self string do: [ :char | 
 			  char isUppercase ifTrue: [ stream nextPut: $  ].
 			  stream nextPut: char ] ]
+]
+
+{ #category : #converting }
+PharoStringCaseFormater >> asKebabCase [
+
+	^ String streamContents: [ :stream | 
+		  self string uncapitalized do: [ :char | 
+			  char isUppercase
+				  ifTrue: [ stream << '-' << char asLowercase ]
+				  ifFalse: [ stream << char ] ] ]
 ]
 
 { #category : #converting }
