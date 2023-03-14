@@ -1,5 +1,9 @@
 "
-[wiki link](https://en.wikipedia.org/wiki/Naming_convention_programming)
+## Usage
+
+```st
+(PharoStringCaseFormater on: 'AString') asKebabCase
+```
 "
 Class {
 	#name : #PharoStringCaseFormater,
