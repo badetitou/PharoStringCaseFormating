@@ -59,7 +59,8 @@ PharoStringCaseFormater >> asExpendedString [
 PharoStringCaseFormater >> asKebabCase [
 
 	^ String streamContents: [ :stream | 
-		  self string uncapitalized do: [ :char | 
+		  (self string uncapitalized reject: [ :char | 
+			   char isSpaceSeparator ]) do: [ :char | 
 			  char isUppercase
 				  ifTrue: [ stream << '-' << char asLowercase ]
 				  ifFalse: [ stream << char ] ] ]

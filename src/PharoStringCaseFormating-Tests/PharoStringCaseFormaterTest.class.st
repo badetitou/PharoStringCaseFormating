@@ -28,6 +28,16 @@ PharoStringCaseFormaterTest >> testAsKebabCase [
 ]
 
 { #category : #test }
+PharoStringCaseFormaterTest >> testAsKebabCaseWithSpace [
+
+	self
+		assert: (formater
+				 string: 'Hello World';
+				 asKebabCase)
+		equals: 'hello-world'
+]
+
+{ #category : #test }
 PharoStringCaseFormaterTest >> testAsRealCamelCaseAlreadyCamelCase [
 
 	self
