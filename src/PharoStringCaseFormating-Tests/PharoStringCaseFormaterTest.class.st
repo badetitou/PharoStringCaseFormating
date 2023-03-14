@@ -28,6 +28,16 @@ PharoStringCaseFormaterTest >> testAsKebabCase [
 ]
 
 { #category : #test }
+PharoStringCaseFormaterTest >> testAsKebabCaseMultipleMaj [
+
+	self
+		assert: (formater
+				 string: 'OMP TMP';
+				 asKebabCase)
+		equals: 'omp-tmp'
+]
+
+{ #category : #test }
 PharoStringCaseFormaterTest >> testAsKebabCaseWithSpace [
 
 	self

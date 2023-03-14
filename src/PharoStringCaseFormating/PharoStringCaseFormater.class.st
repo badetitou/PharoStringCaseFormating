@@ -59,11 +59,10 @@ PharoStringCaseFormater >> asExpendedString [
 PharoStringCaseFormater >> asKebabCase [
 
 	^ String streamContents: [ :stream | 
-		  (self string uncapitalized reject: [ :char | 
-			   char isSpaceSeparator ]) do: [ :char | 
-			  char isUppercase
-				  ifTrue: [ stream << '-' << char asLowercase ]
-				  ifFalse: [ stream << char ] ] ]
+		  (self string asConsecutiveExpendedString uncapitalized 
+			   substrings: (CharacterSet newFrom: #( $_ $- $  )))
+			  do: [ :subString | stream << subString asLowercase ]
+			  separatedBy: [ stream << '-' ] ]
 ]
 
 { #category : #converting }
